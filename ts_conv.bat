@@ -8,9 +8,10 @@ set count=!j_!
 set j_=0
 for /r %%i in (*.ts) do (
     set /a j_+=1
-    echo [!j_!/%count%]Current converting file: %%i
-    choice /c YN /m "> Jump"
-    if errorlevel 1 (
+    echo [!j_!/%count%]Current converting file: 
+    echo %%i
+    choice /c YN /m "> Skip"
+    if errorlevel 2 (
         setlocal
         tsc %%i
         endlocal
@@ -18,5 +19,6 @@ for /r %%i in (*.ts) do (
         pause
     )
 )
+echo Done. && pause >nul
 
 ::w 2021-10-11 09:37
