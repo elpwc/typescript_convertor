@@ -6,9 +6,9 @@ for /r %%i in (*.ts) do (
 )
 set count=!j_!
 set j_=0
-for /r %%i in (*.ts) do (
+for /r %%i in (*.ts) do @(
     set /a j_+=1
-    echo [!j_!/%count%]Current converting file: 
+    echo [^!j_^!/%count%]Current converting file: 
     echo %%i
     choice /c YN /m "> Skip"
     if errorlevel 2 (
