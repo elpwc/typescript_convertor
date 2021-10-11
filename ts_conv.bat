@@ -13,7 +13,8 @@ for /r %%i in (*.ts) do (
     choice /c YN /m "> Skip"
     if errorlevel 2 (
         setlocal
-        tsc %%i
+        tsc %%i --target es6
+        rem remove "--target es6" if you want to compile in es5
         endlocal
         echo.
         pause
